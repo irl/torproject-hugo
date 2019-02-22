@@ -1,0 +1,58 @@
+<nav class="navbar no-background navbar-expand-lg navbar-dark fixed-top bg-primary">
+  <a class="navbar-brand" href="/">
+    <img src="{{ .Site.BaseURL }}/images/tor-logo.svg" >
+    <span class="sr-only"></span>
+  </a>
+  <label for="nav-toggle">
+    <a class="btn btn-lg btn-primary navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </a>
+  </label>
+  <input type="checkbox" id="nav-toggle"/>
+  <div class="collapse navbar-collapse hamburger-menu" id="navbarSupportedContent">
+    <div class="mx-auto pt-2 pl-4">
+      <ul class="navbar-nav">
+        <a class="nav-link" href="https://www.torproject.org/about">About</a>
+        <a class="nav-link" href="https://www.torproject.org/docs/documentation.html.en">Documentation</a>
+        <a class="nav-link" href="https://support.torproject.org/">Support</a>
+        <a class="nav-link" href="https://blog.torproject.org">Blog</a>
+        <a class="nav-link" href="https://donate.torproject.org">Donate</a>
+      </ul>
+    </div>
+
+    <a class="btn text-primary bg-white btn-light pull-right mt-2" href="https://www.torproject.org/download/download-easy.html.en">
+      <i class="glyphicon-glyphicon-arrow-down"></i> Download Tor Browser
+    </a>
+  </div>
+</nav>
+
+<div class="container-fluid bg-primary">
+  <div class="row flex-xl-nowrap">
+    <div class="container bg-primary pt-5">
+      <div class="row">
+        <div class="col-12 content-center pt-5">
+          <div class="row">
+		  <h6 class="mx-auto text-white text-uppercase">{{ .Site.Title }}</h6>
+          </div>
+          <div class="row pb-5">
+		  <h2 class="mx-auto display-3 text-white text-capitalize">{{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid  border-bottom border-light">
+  <div class="row flex-xl-nowrap">
+    <div class="row col-12 justify-content-center">
+      <ul class="nav">
+	  {{ range .Site.Menus.main }}
+	  <li class="nav-item">
+		  <a class="nav-link{{ if eq .URL "/" }}{{ if eq $.Page.RelPermalink .URL }} active border-active{{ end }}{{ else }}{{ if hasPrefix $.Page.RelPermalink .URL }} active border-active{{ end }}{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+	  </li>
+	  {{ end }}
+      </ul>
+    </div>
+  </div>
+</div>

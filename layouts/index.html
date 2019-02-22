@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+          {{- partial "header.html" . -}}
+	  {{- partial "homepage.html" . -}}
+        <div id="content">
+		{{ .Content }}
+        </div>
+        {{- partial "footer.html" . -}}
+    <script src="/js/jquery-3.2.1.min.js" ></script>
+    <script src="/js/popper.min.js" ></script>
+    <script src="/js/bootstrap.bundle.min.js" ></script>
+  </body>
+</html>
